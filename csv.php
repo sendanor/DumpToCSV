@@ -35,8 +35,23 @@ function curlWrap($url, $json, $action)
 $myFile = "users.csv";
 $fh = fopen($myFile, 'w');
 date_default_timezone_set('UTC');
+
+/* See note below */ 
+
 $time = strtotime("-8 hours");
 $decoded = curlWrap("/exports/tickets/sample.json?start_time=1332034771"/*.$time*/, null, "GET");
+
+/* when you are ready for production use you can remove the sample.json and make it 
+ * just exports/tickets.json. Make sure the final line looks as follows:
+ * 
+ * $decoded = curlWrap("/exports/tickets.json?start_time=".$time, null, "GET");
+ *
+ * You set the timestamp to whatever you like using $time = strtotime("-20 minutes") as an example of 
+ * all tickets from now to twenty minutes ago. 
+ *
+ */
+ 
+ 
 $first = $decoded->results[0];
 $first = (array) $first;
 $keys = array_keys($first);
