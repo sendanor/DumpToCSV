@@ -32,7 +32,7 @@ function curlWrap($url, $json, $action)
 	return $decoded;
 }
 /* ticket dumper */
-$myFile = "users.csv";
+$myFile = "tickets.csv";
 $fh = fopen($myFile, 'w');
 date_default_timezone_set('UTC');
 
