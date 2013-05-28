@@ -1,7 +1,5 @@
 <?php
-define("ZDAPIKEY", "key");
-define("ZDUSER", "username");
-define("ZDURL", "https://ajpspoke.zendesk.com/api/v2");
+require_once(basename(__FILE__) . '/config.php');
 function curlWrap($url, $json, $action)
 {
 	$ch = curl_init();
